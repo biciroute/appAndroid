@@ -7,48 +7,48 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myapplication.R;
 import com.example.myapplication.entities.Route;
 
 import java.util.List;
 
-import androidx.recyclerview.widget.RecyclerView;
+public class RouteListAdapter  extends RecyclerView.Adapter<RouteListAdapter.RouteViewModel> {
 
-public class RouteListAdapter  extends RecyclerView.Adapter<RouteListAdapter.WordViewHolder> {
 
-    class WordViewHolder extends RecyclerView.ViewHolder {
-        private final TextView wordItemView;
+    class RouteViewModel extends RecyclerView.ViewHolder {
+        private final TextView routeItemView;
 
-        private WordViewHolder(View itemView) {
+        private RouteViewModel(View itemView) {
             super(itemView);
-            wordItemView = itemView.findViewById(R.id.textView);
+            routeItemView = itemView.findViewById(R.id.textView);
         }
     }
 
     private final LayoutInflater mInflater;
     private List<Route> mRoute; // Cached copy of words
 
-    public RouteListAdapter(Context context) {
-        mInflater = LayoutInflater.from(context);
-    }
+    public RouteListAdapter(Context context) { mInflater = LayoutInflater.from(context); }
 
     @Override
-    public WordViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RouteViewModel onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
-        return new WordViewHolder(itemView);
+        return new RouteViewModel(itemView);
     }
 
     @Override
-    public void onBindViewHolder(WordViewHolder holder, int position) {
+    public void onBindViewHolder(RouteViewModel holder, int position) {
         if (mRoute != null) {
             Route current = mRoute.get(position);
-            holder.wordItemView.setText(current.getUser().getFirstName());
+            holder.routeItemView.setText(current.getUser().getEmail());
         } else {
             // Covers the case of data not being ready yet.
-            holder.wordItemView.setText("No Word");
+            holder.routeItemView.setText("No Route");
         }
     }
 
-    void setWords(List<Route> routes) {
+    void setRoute(List<Route> routes){
         mRoute = routes;
         notifyDataSetChanged();
     }
@@ -61,4 +61,6 @@ public class RouteListAdapter  extends RecyclerView.Adapter<RouteListAdapter.Wor
             return mRoute.size();
         else return 0;
     }
+
+
 }

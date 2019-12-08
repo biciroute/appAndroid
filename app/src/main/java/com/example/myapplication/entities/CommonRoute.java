@@ -1,24 +1,30 @@
 package com.example.myapplication.entities;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity(tableName = "common_Route")
 public class CommonRoute {
-    private ObjectId _id;
+
+    @PrimaryKey
+    private String _id;
+
+    @NonNull
     private Point origin;
+
+    @NonNull
     private Point destination;
+
+    @NonNull
+    @Ignore
     private User leaderRoute;
+
+    @NonNull
     private Date hour;
 
     @Override

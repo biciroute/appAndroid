@@ -14,7 +14,6 @@ import retrofit2.http.Path;
 
 public interface IRouteServices {
 
-
     @GET(value="/user/{user_id}")
     Call<List<Route>> getRoutesbyUser(@Path("user_id") String user_id);
 

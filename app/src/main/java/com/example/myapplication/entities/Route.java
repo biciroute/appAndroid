@@ -2,11 +2,9 @@ package com.example.myapplication.entities;
 
 import android.graphics.Point;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
-
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,12 +12,22 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity(tableName =  "route")
 public class Route{
 
-    private ObjectId _id;
+    @PrimaryKey
+    private String _id;
+
+    @NonNull
     private Point origin;
+
+    @NonNull
     private Point destination;
+
+    @NonNull
     private User user;
+
+    @NonNull
     private CommonRoute commonRoute;
 
     @Override

@@ -1,9 +1,7 @@
 package com.example.myapplication.entities;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,12 +10,12 @@ import lombok.ToString;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document
 @ToString
+@Entity
 public class Point {
 
-    @Id
-    private ObjectId _id;
+    @PrimaryKey
+    private String _id;
     private String latitude;
     private String longitude;
     private String address;
