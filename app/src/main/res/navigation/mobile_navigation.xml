@@ -36,6 +36,14 @@
         tools:layout="@layout/fragment_share" />
 
     <fragment
+        android:id="@+id/nav_routes"
+        android:name="com.example.myapplication.actitivies.ui.routes.RoutesFragment"
+        android:label="@string/menu_routes"
+        tools:layout="@layout/routes_fragment" />
+
+
+
+    <fragment
         android:id="@+id/nav_send"
         android:name="com.example.myapplication.actitivies.ui.send.SendFragment"
         android:label="@string/menu_send"

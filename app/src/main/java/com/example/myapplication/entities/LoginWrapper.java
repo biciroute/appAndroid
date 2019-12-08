@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class LoginWrapper {
 
-    private String userName;
+    private String email;
     private String password;
 
     public LoginWrapper(String userName , String password){
-        this.userName = userName;
+        this.email = userName;
         this.password = password;
     }
 

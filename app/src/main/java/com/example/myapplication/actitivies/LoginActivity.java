@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://backieti.herokuapp.com/") //localhost for emulator
+                .baseUrl("https://biciroute-api.herokuapp.com/") //localhost for emulator
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -64,10 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            //Log.e("TaskList " , response1.body().toString());
-                            System.out.println(token.toString());
-                            //saveToken(token);
-
+                            System.out.println(token);                         //saveToken(token);
                         }
                     });
 

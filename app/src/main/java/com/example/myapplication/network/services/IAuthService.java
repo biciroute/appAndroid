@@ -9,6 +9,6 @@ import retrofit2.http.POST;
 
 public interface IAuthService {
 
-    @POST("v1/login/")
+    @POST("user/login/")
     Call<Token> login(@Body LoginWrapper login);
 }

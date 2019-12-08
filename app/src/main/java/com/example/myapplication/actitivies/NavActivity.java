@@ -3,11 +3,16 @@ package com.example.myapplication.actitivies;
 import android.os.Bundle;
 
 import com.example.myapplication.R;
+import com.example.myapplication.actitivies.ui.routes.RoutesFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,7 +27,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class NavActivity extends AppCompatActivity {
+public class NavActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+        {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -46,7 +52,7 @@ public class NavActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+                R.id.nav_tools, R.id.nav_share, R.id.nav_send, R.id.nav_routes)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -66,5 +72,24 @@ public class NavActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int  id = menuItem.getItemId();
+        Fragment  fragment = null;
+        boolean selectfFragment = false;
+        if(id == R.id.nav_routes){
+            fragment = new RoutesFragment();
+
+        }
+        if(fragment!=null) {
+            selectfFragment = true;
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_home,fragment).commit();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
