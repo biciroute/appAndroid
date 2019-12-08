@@ -2,6 +2,9 @@ package com.example.myapplication.entities;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import org.bson.types.ObjectId;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,11 +14,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity
 public class Point {
 
-    @PrimaryKey
-    private String _id;
+    private ObjectId _id;
     private String latitude;
     private String longitude;
     private String address;

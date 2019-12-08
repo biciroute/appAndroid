@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">BiciRoute</string>
     <string name="preference_file_key">SharedPreferenceFileKey</string>
+    <string name="id_user">id_user</string>
+
+    <string name="origen"></string>
+    <string name="destino"></string>
+
+
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>

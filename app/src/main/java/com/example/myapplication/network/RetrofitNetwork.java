@@ -15,7 +15,7 @@ public class RetrofitNetwork {
     private static final String BASE_URL = "https://biciroute-api.herokuapp.com/";
     private static Retrofit retrofit;
 
-    public RetrofitNetwork(final String token){
+    public static void createRetrofitNetwork(final String token){
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.addInterceptor( new Interceptor()
         {

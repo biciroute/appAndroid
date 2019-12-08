@@ -6,25 +6,24 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import org.bson.types.ObjectId;
+
 import java.util.Date;
 
-@Entity(tableName = "common_Route")
 public class CommonRoute {
 
-    @PrimaryKey
-    private String _id;
+    private ObjectId _id;
 
-    @NonNull
     private Point origin;
 
-    @NonNull
     private Point destination;
 
     @NonNull
     @Ignore
     private User leaderRoute;
 
-    @NonNull
+    private String address;
+
     private Date hour;
 
     @Override

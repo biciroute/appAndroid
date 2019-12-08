@@ -1,33 +1,24 @@
 package com.example.myapplication.entities;
 
-import android.graphics.Point;
-
-import androidx.annotation.NonNull;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import org.bson.types.ObjectId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.example.myapplication.entities.Point;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(tableName =  "route")
 public class Route{
 
-    @PrimaryKey
-    private String _id;
+    private ObjectId _id;
 
-    @NonNull
     private Point origin;
 
-    @NonNull
     private Point destination;
 
-    @NonNull
     private User user;
 
-    @NonNull
     private CommonRoute commonRoute;
 
     @Override

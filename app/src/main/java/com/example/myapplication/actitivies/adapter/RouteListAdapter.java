@@ -30,7 +30,8 @@ public class RouteListAdapter  extends RecyclerView.Adapter<RouteListAdapter.Rou
 
         public RouteViewModel(View view) {
             super(view);
-
+            origen =  view.findViewById(R.id.origen);
+            destino = view.findViewById(R.id.destino);
         }
     }
 
@@ -43,7 +44,8 @@ public class RouteListAdapter  extends RecyclerView.Adapter<RouteListAdapter.Rou
 
     @Override
     public void onBindViewHolder(@NonNull RouteViewModel holder, int position) {
-        //holder.usuarioNombre.setText(routeArrayList.get(position).getUser().getName());
+        holder.origen.setText(routeArrayList.get(position).getOrigin().getAddress());
+        holder.destino.setText(routeArrayList.get(position).getDestination().getAddress());
     }
 
     @Override

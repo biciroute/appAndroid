@@ -1,6 +1,8 @@
 package com.example.myapplication.actitivies;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.entities.LoginWrapper;
 import com.example.myapplication.entities.Token;
+import com.example.myapplication.network.RetrofitNetwork;
 import com.example.myapplication.network.services.IAuthService;
 
 import java.io.IOException;
@@ -44,8 +47,8 @@ public class LoginActivity extends AppCompatActivity {
         final Intent intent = new Intent(this, NavActivity.class);
         //EditText editUser = (EditText) findViewById(R.id.userText);
         //EditText editPsw = (EditText) findViewById(R.id.userPassword);
-        final String userS = "camilo@localhost.com"; //editUser.getText().toString();
-        final String pswS = "Camilo123";//editPsw.getText().toString();
+        final String userS = "admin@localhost.com"; //editUser.getText().toString();
+        final String pswS = "Admin123";//editPsw.getText().toString();
         Log.e("Si entro", "No se");
         executorService.execute(new Runnable() {
             @Override
@@ -54,16 +57,11 @@ public class LoginActivity extends AppCompatActivity {
                     Response<Token> response =
                             authService.login(new LoginWrapper(userS, pswS)).execute();
                     final Token token = response.body();
-
-                        /*
-                            Testing if this's works
-                            RetrofitNetwork retrofit1 = new RetrofitNetwork(token.getAccessToken());
-                            ITaskService taskService =  retrofit1.getTaskService();
-                            final Response<List<Task>> response1 =  taskService.getAllTask().execute();
-                        */
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            RetrofitNetwork.createRetrofitNetwork(token.getAccessToken());
+                            saveUserId(token);
                             System.out.println(token);                         //saveToken(token);
                         }
                     });
@@ -75,5 +73,13 @@ public class LoginActivity extends AppCompatActivity {
         });
         startActivity(intent);
 
+    }
+
+    public void saveUserId(Token token){
+        SharedPreferences sharedPref =
+                getSharedPreferences(getString(R.string.id_user), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("LOGIN", token.getUserId());
+        editor.commit();
     }
 }
