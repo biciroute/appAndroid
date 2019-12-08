@@ -24,6 +24,11 @@ public class RouteListAdapter  extends RecyclerView.Adapter<RouteListAdapter.Rou
         this.routeArrayList = routeArrayList;
     }
 
+    public void setRoutes(ArrayList<Route> routes){
+        this.routeArrayList = routes;
+    }
+
+
     public class RouteViewModel extends  RecyclerView.ViewHolder{
 
         public TextView origen, destino , usuarioNombre;

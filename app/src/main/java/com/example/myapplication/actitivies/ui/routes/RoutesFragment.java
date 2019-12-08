@@ -1,5 +1,6 @@
 package com.example.myapplication.actitivies.ui.routes;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
@@ -31,6 +32,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 import retrofit2.Response;
 
@@ -42,9 +45,10 @@ public class RoutesFragment extends Fragment {
     private RoutesViewModel mViewModel;
     RecyclerView recyclerView;
     ArrayList<Route> routeArrayList;
+    RouteListAdapter routeListAdapter;
     private final ExecutorService executorService = Executors.newFixedThreadPool(1);
     IRouteServices routeServices = RetrofitNetwork.getIRouteServices();
-
+    private static boolean fin;
     public static RoutesFragment newInstance() {
         return new RoutesFragment();
     }
@@ -54,14 +58,15 @@ public class RoutesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View  view = inflater.inflate(R.layout.routes_fragment, container, false);
-        routeArrayList = new ArrayList<>();
+        routeArrayList = new ArrayList<Route>();
         recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         getAllRoutes();
-        System.out.println("Before adapater " + this.routeArrayList);
 
-        RouteListAdapter routeListAdapter = new RouteListAdapter(routeArrayList);
+        routeListAdapter = new RouteListAdapter(routeArrayList);
         recyclerView.setAdapter(routeListAdapter);
+
+        System.out.println("Before adapater " + this.routeArrayList);
         return view;
     }
 
@@ -97,7 +102,9 @@ public class RoutesFragment extends Fragment {
 
     public void fillUpList(List<Route> routes){
         this.routeArrayList =new ArrayList<Route>(routes);
-        System.out.println(this.routeArrayList);
+        routeListAdapter.setRoutes(routeArrayList);
+        routeListAdapter.notifyDataSetChanged();
+        fin = true;
     }
 
     @Override

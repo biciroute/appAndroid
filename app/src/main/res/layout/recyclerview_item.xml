@@ -18,18 +18,17 @@ limitations under the License. -->
     <LinearLayout
         android:id="@+id/vly"
         android:layout_width="match_parent"
-        android:layout_height="181dp"
+        android:layout_height="215dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:orientation="horizontal"
-        android:paddingTop="20px"
         android:weightSum="3">
 
         <LinearLayout
             android:id="@+id/ly"
             android:layout_width="match_parent"
-            android:layout_height="181dp"
+            android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@drawable/map"
             android:orientation="vertical">
@@ -60,12 +59,12 @@ limitations under the License. -->
                 android:layout_below="@+id/ly1"
                 android:orientation="horizontal"
                 android:paddingLeft="5px"
-                android:paddingRight="5px"/>
+                android:paddingRight="5px" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20px"
+                android:layout_height="19dp"
+                android:layout_marginTop="10px"
                 android:layout_weight="1"
                 android:fontFamily="@font/aclonica"
                 android:text="Origen " />
@@ -81,16 +80,15 @@ limitations under the License. -->
 
                 <TextView
                     android:id="@+id/origen"
-                    android:layout_width="wrap_content"
+                    android:layout_width="380dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10px"
-                    android:layout_weight="1"
-                    />
+                    android:layout_weight="1" />
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="14dp"
                 android:layout_marginTop="10px"
                 android:layout_weight="1"
                 android:fontFamily="@font/aclonica"
@@ -107,7 +105,7 @@ limitations under the License. -->
 
                 <TextView
                     android:id="@+id/destino"
-                    android:layout_width="wrap_content"
+                    android:layout_width="386dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10px"
                     android:layout_weight="1"
@@ -119,7 +117,7 @@ limitations under the License. -->
             <Button
                 android:id="@+id/button2"
                 android:layout_width="59dp"
-                android:layout_height="46dp"
+                android:layout_height="35dp"
                 android:layout_gravity="right|bottom"
                 android:background="@drawable/mapf"
                 android:fontFamily="@font/aclonica"
