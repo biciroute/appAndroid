@@ -13,6 +13,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -78,11 +79,13 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int  id = menuItem.getItemId();
         Fragment  fragment = null;
+
         boolean selectfFragment = false;
         if(id == R.id.nav_routes){
             fragment = new RoutesFragment();
 
         }
+
         if(fragment!=null) {
             selectfFragment = true;
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_home,fragment).commit();
