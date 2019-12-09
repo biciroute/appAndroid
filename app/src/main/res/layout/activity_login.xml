@@ -10,13 +10,13 @@
         android:id="@+id/userText"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="61dp"
         android:ems="10"
-        android:hint="Digita tu correo"
+        android:hint="@string/login_email"
         android:inputType="textPersonName"
-        android:text="@string/user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -25,9 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
         android:ems="10"
-        android:hint="Digita tu clave"
+        android:hint="@string/login_password"
         android:inputType="textPassword"
-        android:text="@string/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userText" />
@@ -38,8 +37,41 @@
         android:layout_height="48dp"
         android:layout_marginTop="64dp"
         android:onClick="login"
+        android:text="@string/login_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userPassword" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="178dp"
+        android:layout_height="183dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logo_bici" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="279dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="36dp"
+        android:background="#00FFFFFF"
+        android:onClick="toRegister"
+        android:text="¿No tienes cuenta? Registrate"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

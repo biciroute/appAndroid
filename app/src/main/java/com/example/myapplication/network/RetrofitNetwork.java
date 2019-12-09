@@ -1,5 +1,6 @@
 package com.example.myapplication.network;
 
+import com.example.myapplication.network.services.IProfileService;
 import com.example.myapplication.network.services.IRouteServices;
 
 import java.io.IOException;
@@ -39,6 +40,10 @@ public class RetrofitNetwork {
 
     public static IRouteServices getIRouteServices(){
         return retrofit.create(IRouteServices.class);
+    }
+
+    public static IProfileService getIProfileServices(){
+        return retrofit.create(IProfileService.class);
     }
 
 

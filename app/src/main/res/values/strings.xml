@@ -15,14 +15,24 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_routes">Routes</string>
+    <string name="menu_profile">Profile</string>
 
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-    <string name="user">user</string>
-    <string name="password">password</string>
     <string name="title_activity_nav">NavActivity</string>
+
+    <string name="login_email">Ingresa tu correo</string>
+    <string name="login_password">Ingresa tu contraseña</string>
+    <string name="login_button">Login</string>
+
+    <string name="singup_name">Ingresa tu nombre</string>
+    <string name="singup_last_name">Ingresa tu apellido</string>
+    <string name="singup_email">Ingresa tu correo</string>
+    <string name="singup_passsword">Ingresa tu contraseña</string>
+    <string name="singup_button">Registrarse</string>
+
 
     <string name="title_activity_maps">Map</string>
     <string name="find_address">Find Address</string>
